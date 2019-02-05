@@ -1,0 +1,39 @@
+{
+  "name": "rove/klaviyo-client-bundle",
+  "description": "Rove Klaviyo Client Bundle",
+  "keywords": [],
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "jamiet",
+      "email": "jamiet@roveconcepts.com"
+    }
+  ],
+  "license": "MIT",
+  "require-dev": {
+    "rove/security-advisories": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rove\\KlaviyoClientBundle\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "master-dev"
+    }
+  },
+  "repositories": [{
+    "type": "composer",
+    "url": "http://satis.rove.team"
+  }],
+  "config": {
+    "secure-http": false
+  },
+  "require": {
+    "symfony/symfony": "^3.3",
+    "guzzlehttp/psr7": "^1.4",
+    "php-http/guzzle6-adapter": "^1.1",
+    "jms/serializer-bundle": "^3.0"
+  }
+}

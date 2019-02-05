@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Rove\KlaviyoClientBundle\Client\KlaviyoClient:
+        class: Rove\KlaviyoClientBundle\Client\KlaviyoClient
+        arguments: ['@service_container']
