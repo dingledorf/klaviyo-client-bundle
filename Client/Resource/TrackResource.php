@@ -21,12 +21,8 @@ class TrackResource extends Resource
 
 		];
 
-		$request = new Request('GET', $this->endpoint . '?data=' . urlencode(base64_encode($body)), [
-			'headers' => $headers,
-			'connect_timeout' => 30,
-			'timeout' => 30
-		], $body);
+		$request = new Request('GET', $this->endpoint . '?data=' . urlencode(base64_encode($body)), $headers, $body);
 
-		return $this->client->send($request);
+		return $this->client->send($request, $this->defaultOptions);
 	}
 }

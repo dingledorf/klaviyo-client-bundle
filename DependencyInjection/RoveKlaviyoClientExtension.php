@@ -2,7 +2,6 @@
 
 namespace Rove\KlaviyoClientBundle\DependencyInjection;
 
-use Rove\KlaviyoClientBundle\Enum\ConfigKeyEnum;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -24,8 +23,8 @@ class RoveKlaviyoClientExtension extends Extension
 		$configuration = new Configuration();
 		$config = $this->processConfiguration($configuration, $configs);
 
-		$container->setParameter('rove_klaviyo_api_key', $config['api_key']);
-		$container->setParameter('rove_klaviyo_lists', $config['lists']);
+		$container->setParameter('klaviyo.key', $config['api_key']);
+		$container->setParameter('klaviyo.lists', $config['lists']);
 
 		$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 		$loader->load('services.yml');

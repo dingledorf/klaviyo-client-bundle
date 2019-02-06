@@ -20,12 +20,8 @@ class ListResource extends Resource
 			'Content-Type' => 'application/json'
 		];
 
-		$request = new Request('POST', $this->endpoint . "/{$list_id}/subscribe", [
-			'headers' => $headers,
-			'connect_timeout' => 30,
-			'timeout' => 30
-		], $body);
+		$request = new Request('POST', $this->endpoint . "/{$list_id}/subscribe", $headers, $body);
 
-		return $this->client->send($request);
+		return $this->client->send($request, $this->defaultOptions);
 	}
 }

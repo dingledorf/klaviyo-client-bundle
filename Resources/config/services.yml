@@ -6,4 +6,3 @@ services:
 
     Rove\KlaviyoClientBundle\Client\KlaviyoClient:
         class: Rove\KlaviyoClientBundle\Client\KlaviyoClient
-        arguments: ['@service_container']

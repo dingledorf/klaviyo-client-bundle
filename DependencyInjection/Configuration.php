@@ -2,7 +2,7 @@
 
 namespace Rove\KlaviyoClientBundle\DependencyInjection;
 
-use Rove\KlaviyoClientBundle\Enum\ConfigKeyEnum;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\ScalarNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
 	public function getConfigTreeBuilder()
 	{
 		$treeBuilder = new TreeBuilder();
-		$rootNode = $treeBuilder->root('rove_klaviyo');
+		$rootNode = $treeBuilder->root('rove_klaviyo_client');
 
 		// Here you should define the parameters that are allowed to
 		// configure your bundle. See the documentation linked above for
@@ -28,11 +28,25 @@ class Configuration implements ConfigurationInterface
 		$rootNode
 			->children()
 				->scalarNode('api_key')->isRequired()->cannotBeEmpty()->end()
-				->arrayNode('lists')->useAttributeAsKey('name')->children()
-					->append((new ScalarNodeDefinition('id'))->isRequired())
-				->end()
+				->append($this->listsNodeDef())
 			->end();
 
 		return $treeBuilder;
 	}
+	/**
+	 * @return ArrayNodeDefinition
+	 */
+	private function listsNodeDef()
+	{
+		$node = new ArrayNodeDefinition('lists');
+
+		return $node
+			->useAttributeAsKey('name')
+			->prototype('array')
+			->children()
+			->append((new ScalarNodeDefinition('id'))->isRequired())
+			->end()
+			->end();
+	}
+
 }

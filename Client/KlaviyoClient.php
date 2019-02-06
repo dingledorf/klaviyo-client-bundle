@@ -30,7 +30,7 @@ class KlaviyoClient
 		$baseUrl = 'https://a.klaviyo.com/api/';
 		$client = new Client([
 			'base_uri' => $baseUrl
-		]);
+		], );
 		$this->track = new TrackResource($client, $baseUrl);
 		$this->list = new ListResource($client, $baseUrl);
 	}
