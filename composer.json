@@ -31,7 +31,7 @@
     "secure-http": false
   },
   "require": {
-    "symfony/symfony": "^3.3",
+    "symfony/symfony": "^4.0",
     "guzzlehttp/psr7": "^1.4",
     "php-http/guzzle6-adapter": "^1.1",
     "jms/serializer-bundle": "^3.0"
