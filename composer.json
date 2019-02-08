@@ -11,7 +11,8 @@
   ],
   "license": "MIT",
   "require-dev": {
-    "rove/security-advisories": "dev-master"
+    "rove/security-advisories": "dev-master",
+    "symfony/symfony": "^4.0"
   },
   "autoload": {
     "psr-4": {
@@ -31,7 +32,6 @@
     "secure-http": false
   },
   "require": {
-    "symfony/symfony": "^4.0",
     "guzzlehttp/psr7": "^1.4",
     "php-http/guzzle6-adapter": "^1.1",
     "jms/serializer-bundle": "^3.0"
